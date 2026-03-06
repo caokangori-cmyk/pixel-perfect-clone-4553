@@ -1,4 +1,4 @@
-import { Heart, Shield, Instagram, Facebook, Youtube, X, Copy, Check, Loader2, HandHeart, HeartHandshake } from "lucide-react";
+import { Heart, Shield, Instagram, Facebook, Youtube, X, Copy, Check, Loader2, HandHeart, HeartHandshake, QrCode, CheckCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useState, useEffect, useCallback } from "react";
 import { QRCodeSVG } from "qrcode.react";
@@ -240,6 +240,21 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
                   </p>
                 </div>
 
+                <div className="w-full border border-border rounded-xl p-4 mb-3">
+                  <h4 className="text-sm font-bold text-foreground text-center mb-3">Como pagar?</h4>
+                  <div className="flex items-start gap-3 mb-3">
+                    <QrCode className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Escaneie o QR Code ou copie e cole o código Pix em seu app bancário ou carteira digital.
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Seu pagamento será aprovado em alguns instantes.
+                    </p>
+                  </div>
+                </div>
 
 
                 <div className="flex items-center justify-center gap-2 text-muted-foreground">
