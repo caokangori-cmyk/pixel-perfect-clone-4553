@@ -250,9 +250,9 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
                       Escaneie o QR Code ou copie e cole o código Pix em seu app bancário ou carteira digital.
                     </p>
                   </div>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3 mt-1">
                     <img src={passo2Icon} alt="Passo 2" className="w-10 h-10 shrink-0" />
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-xs text-muted-foreground leading-relaxed mt-2.5">
                       Seu pagamento será aprovado em alguns instantes.
                     </p>
                   </div>
