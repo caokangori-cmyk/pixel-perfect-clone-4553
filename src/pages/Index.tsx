@@ -7,6 +7,7 @@ import campaignHero from "@/assets/campaign-hero.jpg";
 import FakeDonationNotification from "@/components/FakeDonationNotification";
 import passo1Icon from "@/assets/pagamento-passo1.svg";
 import passo2Icon from "@/assets/pagamento-passo2.svg";
+import doacaoProtegidaIcon from "@/assets/doacao-protegida.svg";
 
 const DONATION_VALUES = [30, 40, 50, 70, 100, 150];
 
@@ -591,8 +592,7 @@ const ShareModal = ({ open, onClose }: { open: boolean; onClose: () => void }) =
 const StickyBottomBar = ({ onDonate, onShare }: { onDonate: () => void; onShare: () => void }) => (
   <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border px-4 py-3 z-50">
     <div className="flex items-center justify-center gap-1 mb-2">
-      <Shield className="w-4 h-4 text-primary" />
-      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Doação Protegida</span>
+      <img src={doacaoProtegidaIcon} alt="Doação Protegida" className="h-7" />
     </div>
     <button onClick={onDonate} className="w-full bg-primary text-primary-foreground font-bold text-lg py-3 rounded-xl mb-2">
       Quero Ajudar
