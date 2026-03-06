@@ -5,6 +5,8 @@ import { QRCodeSVG } from "qrcode.react";
 import { supabase } from "@/integrations/supabase/client";
 import campaignHero from "@/assets/campaign-hero.jpg";
 import FakeDonationNotification from "@/components/FakeDonationNotification";
+import passo1Icon from "@/assets/pagamento-passo1.svg";
+import passo2Icon from "@/assets/pagamento-passo2.svg";
 
 const DONATION_VALUES = [30, 40, 50, 70, 100, 150];
 
@@ -243,13 +245,13 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
                 <div className="w-full border border-border rounded-xl p-4 mb-3">
                   <h4 className="text-sm font-bold text-foreground text-center mb-3">Como pagar?</h4>
                   <div className="flex items-start gap-3 mb-3">
-                    <QrCode className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
+                    <img src={passo1Icon} alt="Passo 1" className="w-10 h-10 shrink-0" />
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       Escaneie o QR Code ou copie e cole o código Pix em seu app bancário ou carteira digital.
                     </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
+                    <img src={passo2Icon} alt="Passo 2" className="w-10 h-10 shrink-0" />
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       Seu pagamento será aprovado em alguns instantes.
                     </p>
