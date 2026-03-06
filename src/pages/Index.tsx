@@ -388,7 +388,7 @@ const StorySection = () => {
       )}
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-w-md max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-[calc(100%-2rem)] sm:max-w-md max-h-[80vh] overflow-y-auto rounded-2xl mx-auto">
           <DialogHeader>
             <DialogTitle className="text-center text-lg font-extrabold">Quem ajudou</DialogTitle>
           </DialogHeader>
