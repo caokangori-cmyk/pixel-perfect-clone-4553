@@ -9,6 +9,7 @@ import passo1Icon from "@/assets/pagamento-passo1.svg";
 import passo2Icon from "@/assets/pagamento-passo2.svg";
 import doacaoProtegidaIcon from "@/assets/doacao-protegida.svg";
 import logoInstitutoViver from "@/assets/logo-instituto-viver.svg";
+import bannerCampanha from "@/assets/banner-campanha.webp";
 
 const DONATION_VALUES = [30, 40, 50, 70, 100, 150];
 
@@ -272,26 +273,7 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
 
 const HeroBanner = () => (
   <div className="relative w-full">
-    <div className="flex">
-      <div className="flex-1 bg-primary p-4 flex flex-col justify-between">
-        <div className="flex items-center gap-2 mb-3">
-          <img src={logoInstitutoViver} alt="Instituto Viver" className="h-10 brightness-0 invert" />
-        </div>
-        <div>
-          <h2 className="text-primary-foreground text-lg font-extrabold leading-tight">Ajude o Lucas</h2>
-          <p className="text-primary-foreground/90 text-sm">Na luta contra a:<br />Pneumonia Aguda</p>
-        </div>
-        <div className="flex items-center gap-1 mt-3">
-          <div className="w-5 h-5 bg-primary-foreground rounded flex items-center justify-center">
-            <span className="text-primary text-xs font-bold">V</span>
-          </div>
-          <span className="text-primary-foreground text-xs font-semibold">vakinha</span>
-        </div>
-      </div>
-      <div className="flex-1">
-        <img alt="Lucas no hospital" className="w-full h-full object-cover" src="/lovable-uploads/32f1d10d-fdaf-4d64-a6e0-9f806e9d7d1c.png" />
-      </div>
-    </div>
+    <img src={bannerCampanha} alt="Campanha Instituto Viver" className="w-full object-cover" />
   </div>
 );
 
