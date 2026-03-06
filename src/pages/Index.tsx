@@ -233,6 +233,15 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
                   {copied ? "Código Copiado!" : "Copiar Código PIX"}
                 </button>
 
+                <div className="w-full bg-emerald-50 border border-emerald-200 rounded-xl p-3 mb-3 text-center">
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Ao tentar doar usando o Pix, esse nome (ou semelhante) deverá aparecer:{" "}
+                    <span className="font-bold text-foreground">MARKETPLACE BRASIL SYNC LTDA</span>
+                  </p>
+                </div>
+
+
+
                 <div className="flex items-center justify-center gap-2 text-muted-foreground">
                   <Loader2 className="w-4 h-4 animate-spin" />
                   <span className="text-xs">Aguardando pagamento...</span>
