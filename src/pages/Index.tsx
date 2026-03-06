@@ -8,6 +8,7 @@ import FakeDonationNotification from "@/components/FakeDonationNotification";
 import passo1Icon from "@/assets/pagamento-passo1.svg";
 import passo2Icon from "@/assets/pagamento-passo2.svg";
 import doacaoProtegidaIcon from "@/assets/doacao-protegida.svg";
+import logoInstitutoViver from "@/assets/logo-instituto-viver.svg";
 
 const DONATION_VALUES = [30, 40, 50, 70, 100, 150];
 
@@ -123,12 +124,8 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
           <X className="w-6 h-6" />
         </button>
 
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Heart className="w-8 h-8 text-primary fill-primary" />
-          <div>
-            <p className="text-primary text-xs font-bold">Instituto</p>
-            <p className="text-primary text-xl font-black">Viver</p>
-          </div>
+        <div className="flex items-center justify-center mb-4">
+          <img src={logoInstitutoViver} alt="Instituto Viver" className="h-12" />
         </div>
 
         {step === "select" && (
@@ -278,11 +275,7 @@ const HeroBanner = () => (
     <div className="flex">
       <div className="flex-1 bg-primary p-4 flex flex-col justify-between">
         <div className="flex items-center gap-2 mb-3">
-          <Heart className="w-8 h-8 text-primary-foreground fill-primary-foreground" />
-          <div>
-            <p className="text-primary-foreground text-xs font-bold">Instituto</p>
-            <p className="text-primary-foreground text-xl font-black">Viver</p>
-          </div>
+          <img src={logoInstitutoViver} alt="Instituto Viver" className="h-10 brightness-0 invert" />
         </div>
         <div>
           <h2 className="text-primary-foreground text-lg font-extrabold leading-tight">Ajude o Lucas</h2>
@@ -326,12 +319,8 @@ const ProgressBar = () => {
 
 const UrgencyCard = ({ onDonate }: { onDonate: () => void }) => (
   <div className="mx-4 bg-secondary rounded-2xl p-6 text-center mb-6">
-    <div className="flex items-center justify-center gap-2 mb-3">
-      <Heart className="w-10 h-10 text-primary fill-primary" />
-      <div>
-        <p className="text-primary text-xs font-bold">Instituto</p>
-        <p className="text-primary text-2xl font-black">Viver</p>
-      </div>
+    <div className="flex items-center justify-center mb-3">
+      <img src={logoInstitutoViver} alt="Instituto Viver" className="h-14" />
     </div>
     <h2 className="text-lg font-extrabold mb-2">O prazo dos médicos está acabando 💔</h2>
     <p className="text-muted-foreground text-sm mb-4">
@@ -470,12 +459,8 @@ const StorySection = () => {
 
 const FinalCTA = ({ onDonate }: { onDonate: () => void }) => (
   <div className="mx-4 bg-secondary rounded-2xl p-6 text-center mb-8">
-    <div className="flex items-center justify-center gap-2 mb-3">
-      <Heart className="w-10 h-10 text-primary fill-primary" />
-      <div>
-        <p className="text-primary text-xs font-bold">Instituto</p>
-        <p className="text-primary text-2xl font-black">Viver</p>
-      </div>
+    <div className="flex items-center justify-center mb-3">
+      <img src={logoInstitutoViver} alt="Instituto Viver" className="h-14" />
     </div>
     <h2 className="text-lg font-extrabold mb-1">Ele precisa do remédio ESSA SEMANA!</h2>
     <p className="text-2xl mb-2">😭</p>
