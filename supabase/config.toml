@@ -1,1 +1,4 @@
 project_id = "shuvnchuypgqbwmjucwq"
+
+[functions.syncpay-pix]
+verify_jwt = false

@@ -38,20 +38,19 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
   }, [open]);
 
   useEffect(() => {
-    if (step !== "pix" || !externalId || paymentStatus === "paid" || paymentStatus === "approved") return;
-
-    const projectId = import.meta.env.VITE_SUPABASE_URL?.match(/https:\/\/([^.]+)/)?.[1];
-    if (!projectId) return;
+    if (step !== "pix" || !externalId || paymentStatus === "paid" || paymentStatus === "approved" || paymentStatus === "completed") return;
 
     const interval = setInterval(async () => {
       try {
+        const projectId = import.meta.env.VITE_SUPABASE_URL?.match(/https:\/\/([^.]+)/)?.[1];
+        if (!projectId) return;
         const res = await fetch(
-          `https://${projectId}.supabase.co/functions/v1/buckpay-pix?externalId=${externalId}`,
+          `https://${projectId}.supabase.co/functions/v1/syncpay-pix?identifier=${externalId}`,
           { headers: { "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY } }
         );
-        const data = await res.json();
-        if (data.status === "paid" || data.status === "approved") {
-          setPaymentStatus(data.status);
+        const statusData = await res.json();
+        if (statusData.status === "completed" || statusData.status === "paid" || statusData.status === "approved") {
+          setPaymentStatus(statusData.status);
         }
       } catch (e) {
         console.error("Poll error:", e);
@@ -75,7 +74,7 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
     setError("");
 
     try {
-      const { data, error: fnError } = await supabase.functions.invoke("buckpay-pix", {
+      const { data, error: fnError } = await supabase.functions.invoke("syncpay-pix", {
         body: { amount: amountCents }
       });
 
@@ -83,8 +82,8 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
       if (data?.error) throw new Error(data.error);
 
       setPixCode(data.pixCode);
-      setQrcodeBase64(data.qrcodeBase64 || "");
-      setExternalId(data.externalId);
+      setQrcodeBase64("");
+      setExternalId(data.identifier);
       setStep("pix");
     } catch (e: any) {
       console.error("PIX error:", e);
@@ -187,7 +186,7 @@ const DonationModal = ({ open, onClose }: { open: boolean; onClose: () => void }
 
         {step === "pix" && (
           <>
-            {paymentStatus === "paid" || paymentStatus === "approved" ? (
+            {paymentStatus === "paid" || paymentStatus === "approved" || paymentStatus === "completed" ? (
               <div className="flex flex-col items-center py-8">
                 <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mb-4">
                   <Check className="w-10 h-10 text-primary-foreground" />
